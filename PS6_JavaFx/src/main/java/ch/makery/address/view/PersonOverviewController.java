@@ -112,8 +112,8 @@ public class PersonOverviewController {
         	//PS6 - Calling the deletePerson method
         	//		Figure out the value of perID
         	
-        	UUID perID = UUID.fromString("1234");        	
-        	//TODO: Call Delete Person in PersonDAL 
+        	UUID perID = personTable.getSelectionModel().getSelectedItem().getId();
+        	PersonDAL.deletePerson(perID);
         	
         	
             personTable.getItems().remove(selectedIndex);
@@ -141,7 +141,7 @@ public class PersonOverviewController {
         boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
         if (okClicked) {
         	//PS6 - Calling the addPerson method
-        	//TODO: Call Add Person in PersonDAL        	
+        	PersonDAL.addPerson(tempPerson);
             mainApp.getPersonData().add(tempPerson);
         }
     }
@@ -158,7 +158,7 @@ public class PersonOverviewController {
             if (okClicked) {
             	
             	//PS6 - Calling the updatePerson method
-            	//TODO: Call Update Person in PersonDAL 
+            	PersonDAL.updatePerson(selectedPerson);
                 showPersonDetails(selectedPerson);
             }
 

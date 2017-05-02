@@ -4,7 +4,7 @@
 <hibernate-configuration>
  <session-factory>
   <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-  <property name="hibernate.default_schema">YOURUSERID</property>
+  <property name="hibernate.default_schema">CONGM</property>
   <property name="hibernate.connection.username">CONGM</property>
   <property name="hibernate.connection.password">mcxia123</property>
   <property name="hibernate.connection.url">jdbc:oracle:thin:@cisc181.ci3wacsy5j84.us-east-1.rds.amazonaws.com:ORCL</property>
@@ -12,5 +12,6 @@
   <property name="format_sql">true</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
   <mapping resource="mapping/Student.hbm.xml"/>
+  <mapping resource="mapping/Person.hbm.xml"/>
  </session-factory>
 </hibernate-configuration>
