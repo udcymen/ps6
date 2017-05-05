@@ -52,8 +52,8 @@ public class PersonOverviewController {
     @FXML
     private void initialize() {
         // Initialize the person table with the two columns.
-        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().getFirstNameProperty());
+        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().getLastNameProperty());
         
         // Clear person details.
         showPersonDetails(null);
@@ -112,9 +112,9 @@ public class PersonOverviewController {
         	//PS6 - Calling the deletePerson method
         	//		Figure out the value of perID
         	
-        	UUID perID = personTable.getSelectionModel().getSelectedItem().getId();
+        	UUID perID = UUID.fromString("1234");        	
+
         	PersonDAL.deletePerson(perID);
-        	
         	
             personTable.getItems().remove(selectedIndex);
             
@@ -141,7 +141,7 @@ public class PersonOverviewController {
         boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
         if (okClicked) {
         	//PS6 - Calling the addPerson method
-        	PersonDAL.addPerson(tempPerson);
+        	PersonDAL.addPerson(tempPerson);       	
             mainApp.getPersonData().add(tempPerson);
         }
     }
